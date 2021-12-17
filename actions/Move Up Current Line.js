@@ -13,4 +13,5 @@ if (prevEnd > 0) {
     }
     const prevLine = editor.getTextInRange(prevStart, prevEnd)
     editor.replaceTextInRange(prevStart, end, `${currentLine}\n${prevLine}`)
+    editor.setSelectedRange(prevStart)
 }
