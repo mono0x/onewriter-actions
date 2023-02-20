@@ -97,13 +97,7 @@ interface Editor {
    * @param name Name for the new file.
    * @param callback 1Writer creates and opens file asynchronously. This function will be executed when the file has been opened.
    */
-  newFile(text: string, name: string, callback: () => void): void;
-
-  newFile(callback: () => void): void;
-
-  newFile(text: string, callback: () => void): void;
-
-  newFile(name: string, callback: () => void): void;
+  newFile(text?: string, name?: string, callback?: () => void): void;
 
   /**
    * Opens an existing file.
@@ -115,9 +109,11 @@ interface Editor {
    * editor.openFile('Dropbox/Documents/Notes.txt');
    * ```
    */
-  openFile(path: string, mode: "edit" | "preview", callback: () => void): void;
-
-  openFile(path: string, callback: () => void): void;
+  openFile(
+    path: string,
+    mode?: "edit" | "preview",
+    callback?: () => void,
+  ): void;
 
   /**
    * Closes the file that is currently opened in the editor.
