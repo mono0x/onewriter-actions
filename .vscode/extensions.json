@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "denoland.vscode-deno"
+  ]
+}
