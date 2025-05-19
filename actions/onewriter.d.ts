@@ -219,12 +219,12 @@ interface HTTP {
     options: {
       url: string;
       type?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-      data?: any;
+      data?: object;
       headers?: Record<string, string>;
       username?: string;
       password?: string;
     },
-    callback?: (data: any, error?: [number, string]) => void,
+    callback?: (data: object, error?: [number, string]) => void,
   ): void;
 
   /**
@@ -235,8 +235,8 @@ interface HTTP {
    */
   get(
     url: string,
-    data?: any,
-    callback?: (data: any, error?: [number, string]) => void,
+    data?: object,
+    callback?: (data: object, error?: [number, string]) => void,
   ): void;
 
   /**
@@ -247,8 +247,8 @@ interface HTTP {
    */
   post(
     url: string,
-    data?: any,
-    callback?: (data: any, error?: [number, string]) => void,
+    data?: object,
+    callback?: (data: object, error?: [number, string]) => void,
   ): void;
 }
 
