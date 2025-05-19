@@ -168,3 +168,120 @@ interface App {
  * This object contains methods for interacting with the app.
  */
 declare const app: App;
+
+interface UI {
+  /**
+   * Shows an alert dialog.
+   * @param message The message to display.
+   * @param callback A function that will be executed when the dialog is closed.
+   */
+  alert(message: string, callback?: () => void): void;
+
+  /**
+   * Shows a confirmation dialog.
+   * @param message The message to display.
+   * @param callback A function that will be executed with the user's choice. true for OK, false for Cancel.
+   */
+  confirm(message: string, callback?: (result: boolean) => void): void;
+
+  /**
+   * Shows a prompt dialog.
+   * @param message The message to display.
+   * @param defaultValue The default value for the input field.
+   * @param callback A function that will be executed with the user's input. null if cancelled.
+   */
+  prompt(
+    message: string,
+    defaultValue?: string,
+    callback?: (result: string | null) => void,
+  ): void;
+
+  /**
+   * Shows a custom HTML dialog.
+   * @param html The HTML content to display.
+   * @param callback A function that will be executed when the dialog is closed.
+   */
+  showDialog(html: string, callback?: () => void): void;
+}
+
+/**
+ * This object contains methods for interacting with the user.
+ */
+declare const ui: UI;
+
+interface HTTP {
+  /**
+   * Performs a HTTP request.
+   * @param options A set of key/value pairs that configure the request.
+   * @param callback The function to execute when the request completes.
+   */
+  request(
+    options: {
+      url: string;
+      type?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+      data?: any;
+      headers?: Record<string, string>;
+      username?: string;
+      password?: string;
+    },
+    callback?: (data: any, error?: [number, string]) => void,
+  ): void;
+
+  /**
+   * Performs a HTTP GET request.
+   * @param url The URL to which the request is sent.
+   * @param data The data to be sent to the server.
+   * @param callback The function to execute when the request completes.
+   */
+  get(
+    url: string,
+    data?: any,
+    callback?: (data: any, error?: [number, string]) => void,
+  ): void;
+
+  /**
+   * Performs a HTTP POST request.
+   * @param url The URL to which the request is sent.
+   * @param data The data to be sent to the server.
+   * @param callback The function to execute when the request completes.
+   */
+  post(
+    url: string,
+    data?: any,
+    callback?: (data: any, error?: [number, string]) => void,
+  ): void;
+}
+
+/**
+ * This object contains methods for performing HTTP requests.
+ */
+declare const http: HTTP;
+
+interface WebBrowser {
+  /**
+   * Navigates to a URL.
+   * @param url The URL to be opened.
+   */
+  open(url: string): void;
+
+  /**
+   * Sets the webpage contents.
+   * @param html The HTML string to use as the contents of the webpage.
+   */
+  loadHTML(html: string): void;
+
+  /**
+   * Returns the webpage URL.
+   */
+  getURL(): string;
+
+  /**
+   * Returns the webpage title.
+   */
+  getTitle(): string;
+}
+
+/**
+ * This object contains methods for interacting with the in-app web browser.
+ */
+declare const webBrowser: WebBrowser;
